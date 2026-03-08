@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import {
@@ -12,7 +12,7 @@ import { useAuth } from '@/context/AuthContext';
 import { getSessionByCode, getUserSessions } from '@/lib/database';
 import styles from './page.module.css';
 
-export default function StatusPage() {
+function StatusPageContent() {
     const { user, loading: authLoading } = useAuth();
     const searchParams = useSearchParams();
     const [sessionId, setSessionId] = useState('');
@@ -308,5 +308,30 @@ export default function StatusPage() {
                 ) : null}
             </div>
         </div>
+    );
+}
+
+export default function StatusPage() {
+    return (
+        <Suspense fallback={
+            <div className={styles.statusPage}>
+                <div className={styles.bgGlow} />
+                <nav className={styles.topNav}>
+                    <Link href="/" className={styles.logo}>
+                        <div className={styles.logoIcon}>
+                            <Zap size={18} />
+                        </div>
+                        <span className={styles.logoText}>GridWise</span>
+                    </Link>
+                </nav>
+                <div className={styles.statusContainer}>
+                    <div className={styles.searchSection}>
+                        <h1 className={styles.searchTitle}>Loading...</h1>
+                    </div>
+                </div>
+            </div>
+        }>
+            <StatusPageContent />
+        </Suspense>
     );
 }
