@@ -1,0 +1,277 @@
+/* Settings Page Styles */
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.pageHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.pageTitle {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.pageSubtitle {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin-top: var(--space-1);
+}
+
+.headerActions {
+    display: flex;
+    gap: var(--space-3);
+}
+
+/* --- Settings Layout --- */
+.settingsLayout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+    .settingsLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Settings Nav --- */
+.settingsNav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.settingsNavItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.settingsNavItem:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.settingsNavActive {
+    background: var(--primary-subtle);
+    color: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+    .settingsNav {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: var(--space-2);
+        padding-bottom: var(--space-2);
+    }
+
+    .settingsNavItem {
+        white-space: nowrap;
+    }
+}
+
+/* --- Settings Content --- */
+.settingsContent {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+}
+
+.settingsSection {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.sectionTitle {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.sectionDescription {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    margin-bottom: var(--space-8);
+}
+
+/* --- Form Grid --- */
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+}
+
+@media (max-width: 640px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.inputHint {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-top: var(--space-1);
+}
+
+/* --- Toggles --- */
+.toggleSection {
+    margin-top: var(--space-8);
+}
+
+.toggleSectionTitle {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-4);
+}
+
+.toggleList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.toggleItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-primary);
+    transition: background var(--transition-fast);
+}
+
+.toggleItem:hover {
+    background: var(--bg-tertiary);
+}
+
+.toggleLabel {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.toggleDesc {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    display: block;
+    margin-top: 2px;
+}
+
+.toggle {
+    width: 44px;
+    height: 24px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-secondary);
+    border-radius: var(--radius-full);
+    position: relative;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.toggleOn {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.toggleDot {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform var(--transition-fast);
+}
+
+.toggleOn .toggleDot {
+    transform: translateX(20px);
+}
+
+/* --- Pricing --- */
+.pricingGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+.pricingCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-primary);
+}
+
+.pricingDot {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    border-radius: var(--radius-sm);
+}
+
+.pricingInfo {
+    flex: 1;
+}
+
+.pricingLabel {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    display: block;
+    margin-bottom: var(--space-2);
+}
+
+.pricingInput {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.pricingPrefix {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    font-weight: 600;
+}
+
+.pricingSuffix {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.pricingInput .input {
+    max-width: 80px;
+}
+
+@media (max-width: 640px) {
+    .pricingGrid {
+        grid-template-columns: 1fr;
+    }
+}
